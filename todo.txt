@@ -1,0 +1,10 @@
+/**
+@TODO pour mise en ligne
+**/
+Mise en production
+
+/.env
+    - Configurer le fichier d'environnement
+
+/config/app.php
+    - 'debug' => env('APP_DEBUG', true)
