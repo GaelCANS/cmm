@@ -10,6 +10,12 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Load Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Select 2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" integrity="sha256-xJOZHfpxLR/uhh1BwYFS5fhmOAdIRQaiOul5F/b7v3s=" crossorigin="anonymous" />
+
     <!-- App -->
     <link href="{{ asset('/css/backoff-app.css') }}?v={{ time() }}" rel="stylesheet">
 
