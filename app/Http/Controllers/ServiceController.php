@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Service;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -15,7 +16,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+
+        $services = Service::orderBy('name')->get();
+        return view('services.index' , compact('services'));
     }
 
     /**
@@ -25,7 +28,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        $service = null;
+        return view('services.show' , compact('service'));
     }
 
     /**
@@ -34,9 +38,10 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\ServiceRequest $request)
     {
-        //
+        $service = Service::create( $request->only('name' , 'disabled') );
+        return redirect(action('ServiceController@index'))->with('success' , "Le service {$service->name} a bien été crée.");
     }
 
     /**
@@ -47,7 +52,8 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        //
+        $service = Service::findOrFail($id);
+        return view('services.show' , compact('service'));
     }
 
     /**
@@ -68,9 +74,11 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\ServiceRequest $request, $id)
     {
-        //
+        $service = Service::findOrFail($id);
+        $service->update( $request->only('name' , 'disabled') );
+        return redirect()->back()->with('success' , "Le service vient d'être mis à jour");
     }
 
     /**
@@ -81,6 +89,6 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd('cocou');
     }
 }
