@@ -31,10 +31,10 @@
                 <th>@TODO</th>
                 <th>{{ $service->disabled ? 'oui' : 'non' }}</th>
                 <th>
-                    <a href="{{action('ServiceController@show' , $service)}}" class="btn btn-success" title="Rentrer dans le service">
+                    <a href="{{action('ServiceController@show' , $service)}}" class="btn btn-success" title="Modifier ce service">
                         <i class="fa fa-pencil-square"></i>
-                        <a href="{{action('ServiceController@destroy' , $service)}}" class="btn btn-danger" title="Rentrer dans le service" data-confirm="Voulez-vous vraiment supprimer ce service ?" data-method="delete">
-                            <i class="fa fa-fw fa-minus-circle"></i>
+                        <a href="{{action('ServiceController@destroy' , $service)}}" class="btn btn-danger" title="Supprimer le service" data-confirm="Voulez-vous vraiment supprimer ce service ?" data-method="delete">
+                            <i class="fa fa fa-fw fa-trash"></i>
                         </a>
                     </a>
                 </th>

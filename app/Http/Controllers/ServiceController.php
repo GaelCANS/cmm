@@ -6,6 +6,7 @@ use App\Service;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\URL;
 
 class ServiceController extends Controller
 {
@@ -17,7 +18,7 @@ class ServiceController extends Controller
     public function index()
     {
 
-        $services = Service::orderBy('name')->get();
+        $services = Service::where('delete' , '0')->orderBy('name')->get();
         return view('services.index' , compact('services'));
     }
 
@@ -89,6 +90,8 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        dd('cocou');
+        $service = Service::findOrFail($id);
+        $service->update( array('delete' => '1') );
+        return redirect(URL::previous())->with('success' , 'Le service a bien été supprimé');
     }
 }
