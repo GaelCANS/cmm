@@ -9,3 +9,4 @@
 
 <!-- Chargement des JS -->
 <script src="{{ url('/js/backoff-app.js?v='.time() ) }}"></script>
+<script src="{{ url('/js/laravel.js?v=1' ) }}"></script>
